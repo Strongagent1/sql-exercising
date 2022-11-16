@@ -1,13 +1,14 @@
 -- joins: select all the computers from the products table:
-SELECT * FROM products 
-WHERE CATEGORYID = 1;
+
+
 -- using the products table and the categoriestable, return the product name and the category name
  SELECT
 	products.NAME, 
     categories.NAME
 FROM PRODUCTS
 JOIN CATEGORIES
-ON PRODUCT.CATEGORYID = CATEGORY.CATEGORYID;
+ON products.categoryid = categories.categoryid
+WHERE categories.CATEGORYID = 1;
 -- joins: find all product names, product prices, and products ratings that have a rating of 5 
  SELECT
 	products.NAME,
@@ -18,7 +19,7 @@ JOIN reviews
 ON ProductS.PRODUCTID = REVIEWS.ProductID
 WHERE reviews.RATING = 5; 
 -- joins: find the employee with the most total quantity sold.  use the sum() function and group by 
-SELECT 
+SELECT
 	SALES.EmployeeID,
     SUM(SALES.QUANTITY)
 FROM SALES
